@@ -86,9 +86,9 @@
 - 產品名稱 → F13..F28：`Product 1 Name`..`Product 16 Name`
 - 單位 → I13..I28：有產品名稱的話，這裡就填入`盤`
 - 出貨數量 → K13..K28：`Product 1 Quantity`..`Product 16 Quantity`
-- 出貨單價 → N13..N28：`Product 1 Price`..`Product 16 Price`
-- 出貨金額 → O13..O28：`Product 1 Total`..`Product 16 Total`
-- 出貨總額 → O29：`Grand Total` 金額前面要增加貨幣符號`$`
+- 出貨單價 → N13..N28：`Product 1 Price`..`Product 16 Price` 不要輸入小數點以後
+- 出貨金額 → O13..O28：`Product 1 Total`..`Product 16 Total` 不要輸入小數點以後
+- 出貨總額 → O29：`Grand Total` 金額前面要增加貨幣符號`$`， 不要輸入小數點以後
 
 ### D4. 座標位移規則（第 n 筆）
 - 第 n 筆相對母版的列位移：`row_offset = (n-1)*31`
