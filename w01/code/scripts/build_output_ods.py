@@ -29,19 +29,19 @@ CLEAR_CELLS = [
 ]
 
 CLEAR_RANGES = [
-    (3, 13, 28),   # C13:C28
+    (2, 13, 28),   # B13:B28
     (6, 13, 28),   # F13:F28
-    (12, 13, 28),  # L13:L28
+    (11, 13, 28),  # K13:K28
     (14, 13, 28),  # N13:N28
     (15, 13, 28),  # O13:O28
     (15, 29, 29),  # O29
 ]
 
 COLUMN_LETTER_MAP = {
-    "C": 3,
+    "B": 2,
     "D": 4,
     "F": 6,
-    "L": 12,
+    "K": 11,
     "N": 14,
     "O": 15,
     "R": 18,
@@ -298,9 +298,9 @@ def build_output_ods(input_csv, template_path, output_path, log_path):
                 totals_sum += parse_decimal(total_value_raw, record, f"Product {index} Total", logs)
 
                 target_row = block_rows[row_index - 1]
-                set_cell_text(ensure_cell(target_row, COLUMN_LETTER_MAP["C"]), sku)
+                set_cell_text(ensure_cell(target_row, COLUMN_LETTER_MAP["B"]), sku)
                 set_cell_text(ensure_cell(target_row, COLUMN_LETTER_MAP["F"]), name)
-                set_cell_text(ensure_cell(target_row, COLUMN_LETTER_MAP["L"]), quantity)
+                set_cell_text(ensure_cell(target_row, COLUMN_LETTER_MAP["K"]), quantity)
                 set_cell_text(ensure_cell(target_row, COLUMN_LETTER_MAP["N"]), price)
                 set_cell_text(ensure_cell(target_row, COLUMN_LETTER_MAP["O"]), total_value)
 
