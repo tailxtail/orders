@@ -214,7 +214,7 @@ def apply_page_break(target_row, break_attrs):
     for key, value in break_attrs.items():
         if key == "numberrowsrepeated":
             continue
-        target_row.setAttribute(key, value)
+        target_row.attributes[key] = value
 
 
 def build_output_ods(input_csv, template_path, output_path, log_path):
