@@ -79,7 +79,7 @@
 ### D3. 欄位映射（PRINT_ALL 區塊內座標，皆以“母版座標”表示）
 - 出貨日期 → D5：`Order Date` 去除時分秒（原格式 `YYYY-MM-DD HH:MM:SS`，輸出 `YYYY-MM-DD`）
 - 出貨客戶 → D6：`Customer Name`
-- 出貨單號 → N6：`Serial No`
+- 出貨單號 → N5：`Serial No`
 - 訂單號碼 → R5：`Order No`
 - 聯絡電話 → R7：`Customer Phone`
 - 產品編號 → C13..C28：`Product 1 SKU`..`Product 16 SKU`
