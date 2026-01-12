@@ -143,8 +143,8 @@ def clear_cell_content(cell):
     for child in list(cell.childNodes):
         cell.removeChild(child)
     for attr in ("value", "value-type", "date-value"):
-        if cell.getAttribute(attr):
-            cell.removeAttribute(attr)
+        if attr in cell.attributes:
+            cell.attributes.pop(attr, None)
 
 
 def set_cell_text(cell, text):
