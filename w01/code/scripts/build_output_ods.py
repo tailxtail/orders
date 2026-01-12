@@ -342,7 +342,7 @@ def build_output_ods(input_csv, template_path, output_path, log_path):
     if total_records > 0:
         end_row = total_records * 31
         print_range = f"'PRINT_ALL'.A1:'PRINT_ALL'.R{end_row}"
-        print_all.setAttribute("print-ranges", print_range)
+        print_all.setAttribute("printranges", print_range)
 
     doc.save(str(output_path))
 
