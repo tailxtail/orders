@@ -387,6 +387,9 @@ def main():
     output_path = args.output or (base_dir / "out" / "output.ods")
     log_path = args.log or (base_dir / "out" / "log.txt")
 
+    if not input_csv.exists():
+        raise SystemExit(f"Input CSV not found: {input_csv}")
+
     build_output_ods(input_csv, template_path, output_path, log_path)
 
 
