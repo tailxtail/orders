@@ -23,7 +23,7 @@ BASE_FIELDS = [
 CLEAR_CELLS = [
     (4, 5),   # D5
     (4, 6),   # D6
-    (14, 6),  # N6
+    (14, 5),  # N5
     (18, 5),  # R5
     (18, 7),  # R7
 ]
@@ -282,7 +282,7 @@ def build_output_ods(input_csv, template_path, output_path, log_path):
 
             set_cell_text(ensure_cell(block_rows[4], COLUMN_LETTER_MAP["D"]), order_date)
             set_cell_text(ensure_cell(block_rows[5], COLUMN_LETTER_MAP["D"]), customer_name)
-            set_cell_text(ensure_cell(block_rows[5], COLUMN_LETTER_MAP["N"]), serial_no)
+            set_cell_text(ensure_cell(block_rows[4], COLUMN_LETTER_MAP["N"]), serial_no)
             set_cell_text(ensure_cell(block_rows[4], COLUMN_LETTER_MAP["R"]), order_no)
             set_cell_text(ensure_cell(block_rows[6], COLUMN_LETTER_MAP["R"]), customer_phone)
 
