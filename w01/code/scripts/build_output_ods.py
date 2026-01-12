@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import argparse
+import copy
 import csv
 import shutil
 import time
@@ -67,15 +68,15 @@ def ensure_physical_row(table, index):
             offset = index - current
             new_rows = []
             if offset > 0:
-                before = row.cloneNode(True)
+                before = copy.deepcopy(row)
                 before.setAttribute("numberrowsrepeated", str(offset))
                 new_rows.append(before)
-            target = row.cloneNode(True)
+            target = copy.deepcopy(row)
             target.setAttribute("numberrowsrepeated", "1")
             new_rows.append(target)
             remaining = repeat - offset - 1
             if remaining > 0:
-                after = row.cloneNode(True)
+                after = copy.deepcopy(row)
                 after.setAttribute("numberrowsrepeated", str(remaining))
                 new_rows.append(after)
             for new_row in new_rows:
@@ -117,15 +118,15 @@ def ensure_cell(row, col_index):
             offset = col_index - current
             new_cells = []
             if offset > 0:
-                before = cell.cloneNode(True)
+                before = copy.deepcopy(cell)
                 before.setAttribute("numbercolumnsrepeated", str(offset))
                 new_cells.append(before)
-            target = cell.cloneNode(True)
+            target = copy.deepcopy(cell)
             target.setAttribute("numbercolumnsrepeated", "1")
             new_cells.append(target)
             remaining = repeat - offset - 1
             if remaining > 0:
-                after = cell.cloneNode(True)
+                after = copy.deepcopy(cell)
                 after.setAttribute("numbercolumnsrepeated", str(remaining))
                 new_cells.append(after)
             for new_cell in new_cells:
@@ -219,7 +220,7 @@ def build_output_ods(input_csv, template_path, output_path, log_path):
         raise RuntimeError("PRINT_ALL sheet not found")
 
     master_rows = [ensure_physical_row(print_all, idx) for idx in range(1, 32)]
-    template_rows = [row.cloneNode(True) for row in master_rows]
+    template_rows = [copy.deepcopy(row) for row in master_rows]
 
     break_row = ensure_physical_row(print_all, 1000)
     break_attrs = dict(break_row.attributes) if break_row else {}
@@ -236,7 +237,7 @@ def build_output_ods(input_csv, template_path, output_path, log_path):
                 block_rows = master_rows
             else:
                 insert_before = find_row_at_index(print_all, start_row)
-                block_rows = [row.cloneNode(True) for row in template_rows]
+                block_rows = [copy.deepcopy(row) for row in template_rows]
                 if insert_before is None:
                     for row in block_rows:
                         print_all.addElement(row)
