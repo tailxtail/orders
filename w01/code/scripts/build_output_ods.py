@@ -142,7 +142,8 @@ def clone_node(node):
     if isinstance(node, OdfText):
         return OdfText(node.data)
     if getattr(node, "tagName", None):
-        cloned = Element(qname=node.qname, attributes=dict(node.attributes), check_grammar=False)
+        cloned = Element(qname=node.qname, check_grammar=False)
+        cloned.attributes = dict(node.attributes)
         for child in node.childNodes:
             cloned.appendChild(clone_node(child))
         return cloned
