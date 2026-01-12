@@ -48,7 +48,7 @@ COLUMN_LETTER_MAP = {
 
 def iter_table_rows(table):
     for node in table.childNodes:
-        if isinstance(node, TableRow):
+        if getattr(node, "tagName", None) == "table:table-row":
             yield node
 
 
@@ -98,7 +98,7 @@ def find_row_at_index(table, index):
 
 def iter_cells(row):
     for node in row.childNodes:
-        if isinstance(node, (TableCell, CoveredTableCell)):
+        if getattr(node, "tagName", None) in ("table:table-cell", "table:covered-table-cell"):
             yield node
 
 
