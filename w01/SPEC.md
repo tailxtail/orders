@@ -29,7 +29,7 @@
 2. 逐筆資料 n（n 從 1 開始）：
    - 以母版區塊（Row 1..31）為來源，clone 到第 n 筆區塊（必須保留：文字內容、合併儲存格、列高、儲存格樣式、框線）
    - 寫入前，必須先將以下儲存格/範圍「清空內容（set empty）」，避免殘值：
-     - `D5, D6, N6, R5, R7, C13:C28, F13:F28, L13:L28, N13:N28, O13:O28, O29`
+     - `D5, D6, N5, R5, R7, B13:B28, F13:F28, I13:I28, K13:K28, N13:N28, O13:O28, O29`
      - 清空僅影響儲存格內容（value/text）；不得更動任何樣式、合併、框線、列高、欄寬
    - 將第 n 筆資料的計算結果（值）寫入對應儲存格
    - 若 n >= 2，必須在該筆 `start_row` 實現「Page Break Before」
@@ -79,12 +79,13 @@
 ### D3. 欄位映射（PRINT_ALL 區塊內座標，皆以“母版座標”表示）
 - 出貨日期 → D5：`Order Date` 去除時分秒（原格式 `YYYY-MM-DD HH:MM:SS`，輸出 `YYYY-MM-DD`）
 - 出貨客戶 → D6：`Customer Name`
-- 出貨單號 → N6：`Serial No`
+- 出貨單號 → N5：`Serial No`
 - 訂單號碼 → R5：`Order No`
 - 聯絡電話 → R7：`Customer Phone`
-- 產品編號 → C13..C28：`Product 1 SKU`..`Product 16 SKU`
+- 產品編號 → B13..B28：`Product 1 SKU`..`Product 16 SKU`
 - 產品名稱 → F13..F28：`Product 1 Name`..`Product 16 Name`
-- 出貨數量 → L13..L28：`Product 1 Quantity`..`Product 16 Quantity`
+- 單位 → I13..I28：有產品名稱的話，這裡就填入`盤`
+- 出貨數量 → K13..K28：`Product 1 Quantity`..`Product 16 Quantity`
 - 出貨單價 → N13..N28：`Product 1 Price`..`Product 16 Price`
 - 出貨金額 → O13..O28：`Product 1 Total`..`Product 16 Total`
 - 出貨總額 → O29：`Grand Total` 金額前面要增加貨幣符號`$`
